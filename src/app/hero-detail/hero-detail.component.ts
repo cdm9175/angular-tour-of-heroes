@@ -18,7 +18,7 @@ export class HeroDetailComponent {
     private location: Location
   ) {}
 
-  ngOnIniti(): void {
+  ngOnInit(): void {
     this.getHero();
   }
 
@@ -30,4 +30,12 @@ export class HeroDetailComponent {
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
+  }
+
+  
 }
